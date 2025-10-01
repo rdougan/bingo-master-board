@@ -135,7 +135,7 @@ function show(elementName, display) {
     //     else if (e.keyCode === 82) {resetBoard();}
     //     else if (e.keyCode === 88) {toggleBlocker();}
     //     else if (e.keyCode === 66) {hideBingo('B', 'toggle');}
-    //     else if (e.keyCode === 73)f {hideBingo('I', 'toggle');}
+    //     else if (e.keyCode === 73) {hideBingo('I', 'toggle');}
     //     else if (e.keyCode === 78) {hideBingo('N', 'toggle');}
     //     else if (e.keyCode === 71) {hideBingo('G', 'toggle');}
     //     else if (e.keyCode === 79) {hideBingo('O', 'toggle');}
@@ -145,7 +145,7 @@ function show(elementName, display) {
     //     else if (e.keyCode === 72) {hide('masterBoardSlide');show('titleSlide');}
     //     else if (e.keyCode === 70) {toggleFullScreen();}
     //   }
-    }
+    // }
 	}
   else if (elementName === "settingsSlide") {
     setUpSettings(saveData.themeColor);
