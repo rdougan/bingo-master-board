@@ -44,28 +44,27 @@ function init() {
 		bingoBallClass[i].addEventListener("click", () => {activateBingoBall(i+1)});
 	}
   let param = location.search;
-  if (param === "?masterboard") {
+  // if (param === "?masterboard") {
     setTimeout(() => {
-      hide("titleSlide");
       show("fullScreenToggleLayer");
   		show("masterBoardSlide", "grid");
   	},50);
-  } else {
-    if (saveData.firstRun === 0 && supportsLocalStorage) {
-      saveData.firstRun = 1;
-      save();
-      setTimeout(() => {
-        hide("titleSlide");
-        show("fullScreenToggleLayer");
-        show("onboardingSlide");
-      },50);
-    } else {
-      setTimeout(() => {
-        show("fullScreenToggleLayer");
-        show("titleSlide");
-      },50);
-    }
-  }
+  // } else {
+    // if (saveData.firstRun === 0 && supportsLocalStorage) {
+    //   saveData.firstRun = 1;
+    //   save();
+    //   setTimeout(() => {
+    //     hide("titleSlide");
+    //     show("fullScreenToggleLayer");
+    //     show("onboardingSlide");
+    //   },50);
+    // } else {
+      // setTimeout(() => {
+      //   show("fullScreenToggleLayer");
+      //   show("masterboard");
+      // }, 50);
+    // }
+  // }
   document.onkeyup = function() {
     keyPressed = false;
   }
@@ -109,6 +108,11 @@ function onFullScreenChange() {
 }
 
 function show(elementName, display) {
+  if (!document.getElementById(elementName)) {
+    console.warn(`Element with ID "${elementName}" not found.`);
+    return;
+  }
+
   document.getElementById("fader").classList.add("notransition");
   document.getElementById("fader").style.opacity = "1";
 	if (display === "flex") {
@@ -122,7 +126,6 @@ function show(elementName, display) {
 		changeBG(saveData.themeColor);
 		document.getElementById("drawBallLayer").style.display = "block";
 		document.getElementById("fullScreenToggle").classList.add("fullScreenToggleSmall");
-		document.getElementById("homeButton").style.display = "block";
     if (loadedMasterBoard === false) {
       setUpMasterBoard();
       loadedMasterBoard = true;
@@ -218,12 +221,16 @@ function show(elementName, display) {
 }
 
 function hide(elementName) {
+  if (!document.getElementById(elementName)) {
+    console.warn(`Element with ID "${elementName}" not found.`);
+    return;
+  }
+
   document.getElementById(elementName).style.display = "none";
 	if (elementName === "masterBoardSlide") {
 		changeBG();
 		document.getElementById("drawBallLayer").style.display = "none";
 		document.getElementById("fullScreenToggle").classList.remove("fullScreenToggleSmall");
-		document.getElementById("homeButton").style.display = "none";
 	}
 }
 
@@ -259,27 +266,27 @@ function changeFullScreenImg() {
 }
 
 function changeBG(color) {
-  let newColor;
-  if (color === "classic") {
-    newColor = "#d1cc85";
-    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#c4bd97, #948A54)";
-  } else if (color === "red") {
-    newColor = "rgb(253, 166, 166)";
-    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#ed9f9d, #c0504d)";
-  } else if (color === "green") {
-    newColor = "rgb(150, 206, 129)";
-    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#a9c571, #77933c)";
-  } else if (color === "blue") {
-    newColor = "rgb(139, 199, 226)";
-    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#9abce6, #558ed5)";
-  } else if (color === "purple") {
-    newColor = "rgb(189, 176, 216)";
-    document.getElementById("blocker").style.backgroundImage = "linear-gradient(#b3a2c7, #725892)";
-  } else {
-    newColor = "radial-gradient(#f7eaab, #bfbb73)";
-  }
-	document.getElementById("area").style.background=newColor;
-	document.getElementById("fader").style.background=newColor;
+  // let newColor;
+  // if (color === "classic") {
+  //   newColor = "#d1cc85";
+  //   document.getElementById("blocker").style.backgroundImage = "linear-gradient(#c4bd97, #948A54)";
+  // } else if (color === "red") {
+  //   newColor = "rgb(253, 166, 166)";
+  //   document.getElementById("blocker").style.backgroundImage = "linear-gradient(#ed9f9d, #c0504d)";
+  // } else if (color === "green") {
+  //   newColor = "rgb(150, 206, 129)";
+  //   document.getElementById("blocker").style.backgroundImage = "linear-gradient(#a9c571, #77933c)";
+  // } else if (color === "blue") {
+  //   newColor = "rgb(139, 199, 226)";
+  //   document.getElementById("blocker").style.backgroundImage = "linear-gradient(#9abce6, #558ed5)";
+  // } else if (color === "purple") {
+  //   newColor = "rgb(189, 176, 216)";
+  //   document.getElementById("blocker").style.backgroundImage = "linear-gradient(#b3a2c7, #725892)";
+  // } else {
+  //   newColor = "radial-gradient(#f7eaab, #bfbb73)";
+  // }
+	// document.getElementById("area").style.background=newColor;
+	// document.getElementById("fader").style.background=newColor;
 }
 
 function activateBingoBall(bingoIDNum) {
@@ -600,25 +607,17 @@ function toggleBlocker() {
 	if (saveData.blockerEnabled === true) {
     saveData.blockerEnabled = false;
 		document.getElementById("blocker").style.left = 1287 + "px";
-    document.getElementById("showBoard").style.display = "none";
-    document.getElementById("hideBoard").style.display = "flex";
 	} else {
     saveData.blockerEnabled = true;
 		document.getElementById("blocker").style.left = 255 + "px";
-    document.getElementById("hideBoard").style.display = "none";
-    document.getElementById("showBoard").style.display = "flex";
 	}
   save();
 }
 
 function setUpMasterBoard() {
   if (saveData.blockerEnabled === false) {
-    document.getElementById("showBoard").style.display = "none";
-    document.getElementById("hideBoard").style.display = "flex";
     document.getElementById("blocker").style.left = 1287 + "px";
   } else {
-    document.getElementById("hideBoard").style.display = "none";
-    document.getElementById("showBoard").style.display = "flex";
     document.getElementById("blocker").style.left = 255 + "px";
   }
   renderBingoStyle();

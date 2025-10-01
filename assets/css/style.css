@@ -61,7 +61,7 @@ body {
   justify-content:center;
   height:100%;
   width:100%;
-  font-family:"open sans";
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   overflow:hidden;
   position:fixed;
 }
@@ -76,7 +76,7 @@ body {
 
 #area {
   flex-shrink: 0;
-  background: radial-gradient(#f7eaab, #bfbb73);
+  background: black;
   height:720px;
   width:1280px;
   font-size:30px;
@@ -86,7 +86,7 @@ body {
   position:absolute;
   z-index:999;
   flex-shrink: 0;
-  background: radial-gradient(#f7eaab, #bfbb73);
+  background: black;
   height:720px;
   width:1280px;
   overflow:hidden;
@@ -179,6 +179,7 @@ body {
 #winningPatternSlide {
   display:none;
   height:100%;
+  color: #bbb;
   grid-template-columns:100%;
   grid-template-rows: 96px 1fr 77px;
   grid-template-areas: "helpHeader"
@@ -219,7 +220,7 @@ h2 {
 }
 
 .bingoCol {
-  border-left: 2px solid rgba(0,0,0,0.31);
+  border-left: 2px solid rgba(255,255,255,0.31);
   position:relative;
 }
 
@@ -468,11 +469,6 @@ margin:0.5em 0;
   position:absolute;
 }
 
-.bingoLetter:hover {
-  cursor:pointer;
-  color:#e24e53;
-}
-
 .bingoLetterGray {
   color:#969696;
 }
@@ -532,6 +528,7 @@ margin:0.5em 0;
   border-radius:6px;
   transition:background-color 0.15s;
   margin-right:14px;
+  color: #555;
 }
 
 #reset:hover {
@@ -557,12 +554,6 @@ margin:0.5em 0;
   width:186px;
   height:186px;
   margin:0 auto;
-  margin-top:135px;
-  cursor:pointer;
-}
-
-.bigBingoBallClass:hover {
-  opacity:0.35;
 }
 
 #bigBingoLetter {
@@ -592,8 +583,7 @@ margin:0.5em 0;
   width:193px;
   height:44px;
   font-size:25px;
-  background:rgba(179,162,199,0.67);
-  border:1.2px solid rgba(74,126,187,0.85);
+  background:rgba(255,255,255,0.67);
   border-radius:12px;
   margin:9px auto 0 auto;
   display:flex;
@@ -630,16 +620,17 @@ margin:0.5em 0;
   justify-content:center;
   border-radius: 50%;
   width:61px;
-  height:61px;
-  background:#9b9b9b;
+  height:59px;
+  padding-top:2px;
+  background:rgba(255,255,255,0.2);
   margin:4px 10px;
   font-size:38px;
   cursor:pointer;
   border-style: solid;
   border-width: 1px;
   border-color:#333;
-  color:#000;
-  opacity:0.21;
+  color:#fff;
+  opacity:0.6;
 }
 
 .bingoBallBall:hover {
@@ -647,43 +638,63 @@ margin:0.5em 0;
 }
 
 .bingoBallBallActiveB {
-  border-color:rgb(228,108,10);
-  color:#6b3205;
-  opacity:1;
-font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(247, 182, 128,0.85), rgba(228,108,10,0.85));
+  border-color: #1976d2; /* MUI primary blue */
+  color: #ffffff;        /* white text for good contrast */
+  opacity: 1;
+  font-weight: 700;
+  background: radial-gradient(
+    circle at 31.5px 12px, 
+    rgba(144, 202, 249, 0.95),  /* light blue 300 */
+    rgba(25, 118, 210, 0.95)    /* primary blue 700 */
+  );
 }
 
 .bingoBallBallActiveI {
-  border-color:rgb(119,147,60);
-  color:#3e4f1f;
-  opacity:1;
-  font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(176, 204, 120,0.85), rgba(135, 170, 63,0.85));
+  border-color: #d32f2f; /* MUI red 700 */
+  color: #ffffff;        /* white text for contrast */
+  opacity: 1;
+  font-weight: 700;
+  background: radial-gradient(
+    circle at 31.5px 12px,
+    rgba(239, 154, 154, 0.95),  /* light red 300 */
+    rgba(211, 47, 47, 0.95)     /* red 700 */
+  );
 }
 
 .bingoBallBallActiveN {
-  border-color:rgb(49,133,156);
-  color:#194551;
-  opacity:1;
-  font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(108, 201, 226,0.85), rgba(84, 165, 188,0.85));
+  border-color: #9e9e9e; /* neutral grey for definition */
+  color: #000000;        /* black text for contrast */
+  opacity: 1;
+  font-weight: 700;
+  background: radial-gradient(
+    circle at 31.5px 12px,
+    rgba(255, 255, 255, 0.95),  /* bright white */
+    rgba(224, 224, 224, 0.95)   /* light grey for subtle depth */
+  );
 }
 
 .bingoBallBallActiveG {
-  border-color:rgb(96,74,123);
-  color:#352944;
-  opacity:1;
-  font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(195, 164, 234,0.85), rgba(159, 129, 193,0.85));
+  border-color: #2e7d32; /* MUI green 800 */
+  color: #ffffff;        /* white text for contrast */
+  opacity: 1;
+  font-weight: 700;
+  background: radial-gradient(
+    circle at 31.5px 12px,
+    rgba(165, 214, 167, 0.95),  /* green 200 */
+    rgba(46, 125, 50, 0.95)     /* green 800 */
+  );
 }
 
 .bingoBallBallActiveO {
-  border-color:rgb(149,55,53);
-  color:#5e2221;
-  opacity:1;
-  font-weight:700;
-  background:radial-gradient(circle at 31.5px 12px, rgba(255, 138, 135,0.85), rgba(221, 98, 95,0.85));
+  border-color: #fbc02d; /* MUI yellow 700 */
+  color: #000000;        /* black text for contrast */
+  opacity: 1;
+  font-weight: 700;
+  background: radial-gradient(
+    circle at 31.5px 12px,
+    rgba(255, 241, 118, 0.95),  /* yellow 300 */
+    rgba(251, 192, 45, 0.95)    /* yellow 700 */
+  );
 }
 
 .bingoBallBallActiveB:hover, .bingoBallBallActiveI:hover, .bingoBallBallActiveN:hover, .bingoBallBallActiveG:hover, .bingoBallBallActiveO:hover {
@@ -877,6 +888,7 @@ color:gray;
   display:flex;
   align-items:center;
   justify-content:center;
+  color: #fff;
 }
 
 .cardExplanation {
