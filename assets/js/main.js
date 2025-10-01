@@ -127,24 +127,24 @@ function show(elementName, display) {
       setUpMasterBoard();
       loadedMasterBoard = true;
     }
-    document.onkeydown = function(e) {
-      if(!keyPressed) {
-        e.preventDefault();
-        keyPressed = true;
-        if (e.keyCode === 32) {randomDraw();}
-        else if (e.keyCode === 82) {resetBoard();}
-        else if (e.keyCode === 88) {toggleBlocker();}
-        else if (e.keyCode === 66) {hideBingo('B', 'toggle');}
-        else if (e.keyCode === 73) {hideBingo('I', 'toggle');}
-        else if (e.keyCode === 78) {hideBingo('N', 'toggle');}
-        else if (e.keyCode === 71) {hideBingo('G', 'toggle');}
-        else if (e.keyCode === 79) {hideBingo('O', 'toggle');}
-        else if (e.keyCode === 84) {hide('masterBoardSlide');show('settingsSlide', 'grid');}
-        else if (e.keyCode === 87) {hide('masterBoardSlide');show('winningPatternSlide', 'grid');}
-        else if (e.keyCode === 86) {toggleBallsDrawnRemaining('toggle');}
-        else if (e.keyCode === 72) {hide('masterBoardSlide');show('titleSlide');}
-        else if (e.keyCode === 70) {toggleFullScreen();}
-      }
+    // document.onkeydown = function(e) {
+    //   if(!keyPressed) {
+    //     e.preventDefault();
+    //     keyPressed = true;
+    //     if (e.keyCode === 32) {randomDraw();}
+    //     else if (e.keyCode === 82) {resetBoard();}
+    //     else if (e.keyCode === 88) {toggleBlocker();}
+    //     else if (e.keyCode === 66) {hideBingo('B', 'toggle');}
+    //     else if (e.keyCode === 73)f {hideBingo('I', 'toggle');}
+    //     else if (e.keyCode === 78) {hideBingo('N', 'toggle');}
+    //     else if (e.keyCode === 71) {hideBingo('G', 'toggle');}
+    //     else if (e.keyCode === 79) {hideBingo('O', 'toggle');}
+    //     else if (e.keyCode === 84) {hide('masterBoardSlide');show('settingsSlide', 'grid');}
+    //     else if (e.keyCode === 87) {hide('masterBoardSlide');show('winningPatternSlide', 'grid');}
+    //     else if (e.keyCode === 86) {toggleBallsDrawnRemaining('toggle');}
+    //     else if (e.keyCode === 72) {hide('masterBoardSlide');show('titleSlide');}
+    //     else if (e.keyCode === 70) {toggleFullScreen();}
+    //   }
     }
 	}
   else if (elementName === "settingsSlide") {
