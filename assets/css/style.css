@@ -910,6 +910,10 @@ color:gray;
   transition: color 0.15s, background-color 0.2s;
 }
 
+.winningName {
+  font-size: 24px;
+}
+
 .winningName:hover {
   cursor:pointer;
   color:#16639a;
